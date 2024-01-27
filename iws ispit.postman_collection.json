@@ -1,0 +1,2525 @@
+{
+	"info": {
+		"_postman_id": "a9082ac5-daee-45b2-a9be-f5c3e0e1b131",
+		"name": "iws ispit",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31235466"
+	},
+	"item": [
+		{
+			"name": "Account general",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://first.stud.vts.su.ac.rs/nwp/api/account/wrong_table",
+					"protocol": "http",
+					"host": [
+						"first",
+						"stud",
+						"vts",
+						"su",
+						"ac",
+						"rs"
+					],
+					"path": [
+						"nwp",
+						"api",
+						"account",
+						"wrong_table"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Accesing accounts different method than POST",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://first.stud.vts.su.ac.rs/nwp/api/account/",
+							"protocol": "http",
+							"host": [
+								"first",
+								"stud",
+								"vts",
+								"su",
+								"ac",
+								"rs"
+							],
+							"path": [
+								"nwp",
+								"api",
+								"account",
+								""
+							]
+						}
+					},
+					"status": "Method Not Allowed",
+					"code": 405,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 27 Jan 2024 20:57:51 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache"
+						},
+						{
+							"key": "Allow",
+							"value": "POST"
+						},
+						{
+							"key": "Content-Length",
+							"value": "33"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"get is not allowed!\"\n}"
+				},
+				{
+					"name": "Wrong action(login, register, forget allowed)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://first.stud.vts.su.ac.rs/nwp/api/account/wrong_table",
+							"protocol": "http",
+							"host": [
+								"first",
+								"stud",
+								"vts",
+								"su",
+								"ac",
+								"rs"
+							],
+							"path": [
+								"nwp",
+								"api",
+								"account",
+								"wrong_table"
+							]
+						}
+					},
+					"status": "Forbidden",
+					"code": 403,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 27 Jan 2024 21:54:39 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache"
+						},
+						{
+							"key": "Allow",
+							"value": "login, register, forget"
+						},
+						{
+							"key": "Content-Length",
+							"value": "26"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Wrong action\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"hbk31784@zslsz.com\",\r\n    \"password\":\"Pera123.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://first.stud.vts.su.ac.rs/nwp/api/account/login",
+					"protocol": "http",
+					"host": [
+						"first",
+						"stud",
+						"vts",
+						"su",
+						"ac",
+						"rs"
+					],
+					"path": [
+						"nwp",
+						"api",
+						"account",
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Successfull",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"hbk31784@zslsz.com\",\r\n    \"password\":\"Pera123.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://first.stud.vts.su.ac.rs/nwp/api/account/login",
+							"protocol": "http",
+							"host": [
+								"first",
+								"stud",
+								"vts",
+								"su",
+								"ac",
+								"rs"
+							],
+							"path": [
+								"nwp",
+								"api",
+								"account",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 27 Jan 2024 20:58:44 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "51"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"status_message\": \"Login successfull\"\n}"
+				},
+				{
+					"name": "Wrong credentials",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"hbk31784@zslsz.com\",\r\n    \"password\":\"Wrong\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://first.stud.vts.su.ac.rs/nwp/api/account/login",
+							"protocol": "http",
+							"host": [
+								"first",
+								"stud",
+								"vts",
+								"su",
+								"ac",
+								"rs"
+							],
+							"path": [
+								"nwp",
+								"api",
+								"account",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 27 Jan 2024 20:58:44 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "51"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"status_message\": \"Login successfull\"\n}"
+				},
+				{
+					"name": "Data missing",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"hbk31784@zslsz.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://first.stud.vts.su.ac.rs/nwp/api/account/login",
+							"protocol": "http",
+							"host": [
+								"first",
+								"stud",
+								"vts",
+								"su",
+								"ac",
+								"rs"
+							],
+							"path": [
+								"nwp",
+								"api",
+								"account",
+								"login"
+							]
+						}
+					},
+					"status": "Unprocessable Entity",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 27 Jan 2024 20:59:42 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "54"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 422,\n    \"status_message\": \"Incomplete data sent\"\n}"
+				},
+				{
+					"name": "Account blocked",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"hbk31784@zslsz.com\",\r\n    \"password\":\"Pera123.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://first.stud.vts.su.ac.rs/nwp/api/account/login",
+							"protocol": "http",
+							"host": [
+								"first",
+								"stud",
+								"vts",
+								"su",
+								"ac",
+								"rs"
+							],
+							"path": [
+								"nwp",
+								"api",
+								"account",
+								"login"
+							]
+						}
+					},
+					"status": "Forbidden",
+					"code": 403,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 27 Jan 2024 21:00:41 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "49"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 403,\n    \"status_message\": \"Account blocked\"\n}"
+				},
+				{
+					"name": "Account not activated",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"hbk31784@zslsz.com\",\r\n    \"password\":\"Pera123.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://first.stud.vts.su.ac.rs/nwp/api/account/login",
+							"protocol": "http",
+							"host": [
+								"first",
+								"stud",
+								"vts",
+								"su",
+								"ac",
+								"rs"
+							],
+							"path": [
+								"nwp",
+								"api",
+								"account",
+								"login"
+							]
+						}
+					},
+					"status": "Conflict",
+					"code": 409,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 27 Jan 2024 21:01:15 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "58"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 409,\n    \"status_message\": \"Account is not activated\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\":\"Pera\",\r\n    \"lastName\":\"Petrović\",\r\n    \"email\":\"nzg13201@zbock.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://first.stud.vts.su.ac.rs/nwp/api/account/register",
+					"protocol": "http",
+					"host": [
+						"first",
+						"stud",
+						"vts",
+						"su",
+						"ac",
+						"rs"
+					],
+					"path": [
+						"nwp",
+						"api",
+						"account",
+						"register"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Successfull",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\":\"Pera\",\r\n    \"lastName\":\"Petrović\",\r\n    \"email\":\"nzg13201@zbock.com\",\r\n    \"password\":\"Abc1234.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://first.stud.vts.su.ac.rs/nwp/api/account/register",
+							"protocol": "http",
+							"host": [
+								"first",
+								"stud",
+								"vts",
+								"su",
+								"ac",
+								"rs"
+							],
+							"path": [
+								"nwp",
+								"api",
+								"account",
+								"register"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 27 Jan 2024 21:02:38 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "58"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"status_message\": \"Registration successfull\"\n}"
+				},
+				{
+					"name": "User already exists",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\":\"Pera\",\r\n    \"lastName\":\"Petrović\",\r\n    \"email\":\"nzg13201@zbock.com\",\r\n    \"password\":\"Abc1234.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://first.stud.vts.su.ac.rs/nwp/api/account/register",
+							"protocol": "http",
+							"host": [
+								"first",
+								"stud",
+								"vts",
+								"su",
+								"ac",
+								"rs"
+							],
+							"path": [
+								"nwp",
+								"api",
+								"account",
+								"register"
+							]
+						}
+					},
+					"status": "Conflict",
+					"code": 409,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 27 Jan 2024 21:03:04 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "53"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 409,\n    \"status_message\": \"User already exists\"\n}"
+				},
+				{
+					"name": "Data missing",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\":\"Pera\",\r\n    \"lastName\":\"Petrović\",\r\n    \"email\":\"nzg13201@zbock.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://first.stud.vts.su.ac.rs/nwp/api/account/register",
+							"protocol": "http",
+							"host": [
+								"first",
+								"stud",
+								"vts",
+								"su",
+								"ac",
+								"rs"
+							],
+							"path": [
+								"nwp",
+								"api",
+								"account",
+								"register"
+							]
+						}
+					},
+					"status": "Unprocessable Entity",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 27 Jan 2024 21:03:24 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "54"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 422,\n    \"status_message\": \"Incomplete data sent\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Forgot password",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"nzg13201@zbock.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://first.stud.vts.su.ac.rs/nwp/api/account/forget",
+					"protocol": "http",
+					"host": [
+						"first",
+						"stud",
+						"vts",
+						"su",
+						"ac",
+						"rs"
+					],
+					"path": [
+						"nwp",
+						"api",
+						"account",
+						"forget"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Data missing/invalid email",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://first.stud.vts.su.ac.rs/nwp/api/account/forget",
+							"protocol": "http",
+							"host": [
+								"first",
+								"stud",
+								"vts",
+								"su",
+								"ac",
+								"rs"
+							],
+							"path": [
+								"nwp",
+								"api",
+								"account",
+								"forget"
+							]
+						}
+					},
+					"status": "Unprocessable Entity",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 27 Jan 2024 21:04:01 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "53"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 422,\n    \"status_message\": \"Provide valid email\"\n}"
+				},
+				{
+					"name": "Successfull",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"nzg13201@zbock.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://first.stud.vts.su.ac.rs/nwp/api/account/forget",
+							"protocol": "http",
+							"host": [
+								"first",
+								"stud",
+								"vts",
+								"su",
+								"ac",
+								"rs"
+							],
+							"path": [
+								"nwp",
+								"api",
+								"account",
+								"forget"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 27 Jan 2024 21:04:40 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "71"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"status_message\": \"Reset link send to email successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Presents invites PATCH not allowed",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://first.stud.vts.su.ac.rs/nwp/api/presentsInvites/wrong_table/",
+					"protocol": "http",
+					"host": [
+						"first",
+						"stud",
+						"vts",
+						"su",
+						"ac",
+						"rs"
+					],
+					"path": [
+						"nwp",
+						"api",
+						"presentsInvites",
+						"wrong_table",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Presents invites PATCH not allowed",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://first.stud.vts.su.ac.rs/nwp/api/presentsInvites/wish_list/",
+							"protocol": "http",
+							"host": [
+								"first",
+								"stud",
+								"vts",
+								"su",
+								"ac",
+								"rs"
+							],
+							"path": [
+								"nwp",
+								"api",
+								"presentsInvites",
+								"wish_list",
+								""
+							]
+						}
+					},
+					"status": "Method Not Allowed",
+					"code": 405,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 27 Jan 2024 21:20:04 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, PATCH, DELETE"
+						},
+						{
+							"key": "Content-Length",
+							"value": "35"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"patch is not allowed!\"\n}"
+				},
+				{
+					"name": "Wrong table name",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://first.stud.vts.su.ac.rs/nwp/api/presentsInvites/wrong_table/",
+							"protocol": "http",
+							"host": [
+								"first",
+								"stud",
+								"vts",
+								"su",
+								"ac",
+								"rs"
+							],
+							"path": [
+								"nwp",
+								"api",
+								"presentsInvites",
+								"wrong_table",
+								""
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 27 Jan 2024 21:33:47 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "45"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 404,\n    \"status_message\": \"Wrong table\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Wish list",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"link\":\"https://gigatron.rs/oprema-za-racunare/periferije/tastature-i-kompleti\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://first.stud.vts.su.ac.rs/nwp/api/presentsInvites/wish_list/13",
+					"protocol": "http",
+					"host": [
+						"first",
+						"stud",
+						"vts",
+						"su",
+						"ac",
+						"rs"
+					],
+					"path": [
+						"nwp",
+						"api",
+						"presentsInvites",
+						"wish_list",
+						"13"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Presents for event with selected id (GET)",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://first.stud.vts.su.ac.rs/nwp/api/presentsInvites/wish_list/13",
+							"protocol": "http",
+							"host": [
+								"first",
+								"stud",
+								"vts",
+								"su",
+								"ac",
+								"rs"
+							],
+							"path": [
+								"nwp",
+								"api",
+								"presentsInvites",
+								"wish_list",
+								"13"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 27 Jan 2024 21:29:32 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "367"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"status_message\": \"Data found\",\n    \"data\": [\n        {\n            \"id\": 10,\n            \"item\": \"slušalice\",\n            \"link\": \"https://www.audio-technica.com/en-eu/headphones\",\n            \"event_id\": 13,\n            \"user_buying_present\": null,\n            \"is_selected\": \"no\"\n        },\n        {\n            \"id\": 11,\n            \"item\": \"miš\",\n            \"link\": \"https://gigatron.rs/oprema-za-racunare/periferije/misevi\",\n            \"event_id\": 13,\n            \"user_buying_present\": null,\n            \"is_selected\": \"no\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "Event without wish list/empty id/wrong id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://first.stud.vts.su.ac.rs/nwp/api/presentsInvites/wish_list/1",
+							"protocol": "http",
+							"host": [
+								"first",
+								"stud",
+								"vts",
+								"su",
+								"ac",
+								"rs"
+							],
+							"path": [
+								"nwp",
+								"api",
+								"presentsInvites",
+								"wish_list",
+								"1"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 27 Jan 2024 21:30:56 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "48"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 404,\n    \"status_message\": \"Data Not Found\"\n}"
+				},
+				{
+					"name": "Present add (PUT)",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"link\":\"https://gigatron.rs/oprema-za-racunare/periferije/tastature-i-kompleti\",\r\n    \"presentName\":\"tastatura\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://first.stud.vts.su.ac.rs/nwp/api/presentsInvites/wish_list/13",
+							"protocol": "http",
+							"host": [
+								"first",
+								"stud",
+								"vts",
+								"su",
+								"ac",
+								"rs"
+							],
+							"path": [
+								"nwp",
+								"api",
+								"presentsInvites",
+								"wish_list",
+								"13"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 27 Jan 2024 21:40:33 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "61"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"status_message\": \"Present successfully added!\"\n}"
+				},
+				{
+					"name": "Present delete (DELETE)",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://first.stud.vts.su.ac.rs/nwp/api/presentsInvites/wish_list/16",
+							"protocol": "http",
+							"host": [
+								"first",
+								"stud",
+								"vts",
+								"su",
+								"ac",
+								"rs"
+							],
+							"path": [
+								"nwp",
+								"api",
+								"presentsInvites",
+								"wish_list",
+								"16"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 27 Jan 2024 21:43:21 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "63"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"status_message\": \"Present successfully deleted!\"\n}"
+				},
+				{
+					"name": "Invalid present URL",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"link\":\"wrong_link\",\r\n    \"presentName\":\"tastatura\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://first.stud.vts.su.ac.rs/nwp/api/presentsInvites/wish_list/13",
+							"protocol": "http",
+							"host": [
+								"first",
+								"stud",
+								"vts",
+								"su",
+								"ac",
+								"rs"
+							],
+							"path": [
+								"nwp",
+								"api",
+								"presentsInvites",
+								"wish_list",
+								"13"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 27 Jan 2024 22:11:54 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "51"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 400,\n    \"status_message\": \"Invalid URL sent!\"\n}"
+				},
+				{
+					"name": "Missing data",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"link\":\"https://gigatron.rs/oprema-za-racunare/periferije/tastature-i-kompleti\",\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://first.stud.vts.su.ac.rs/nwp/api/presentsInvites/wish_list/13",
+							"protocol": "http",
+							"host": [
+								"first",
+								"stud",
+								"vts",
+								"su",
+								"ac",
+								"rs"
+							],
+							"path": [
+								"nwp",
+								"api",
+								"presentsInvites",
+								"wish_list",
+								"13"
+							]
+						}
+					},
+					"status": "Unprocessable Entity",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 27 Jan 2024 23:28:24 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "74"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 422,\n    \"status_message\": \"Please provide id, link and present name\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Invites",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://first.stud.vts.su.ac.rs/nwp/api/presentsInvites/invites/16",
+					"protocol": "http",
+					"host": [
+						"first",
+						"stud",
+						"vts",
+						"su",
+						"ac",
+						"rs"
+					],
+					"path": [
+						"nwp",
+						"api",
+						"presentsInvites",
+						"invites",
+						"16"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Event ID missing",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://first.stud.vts.su.ac.rs/nwp/api/presentsInvites/invites/",
+							"protocol": "http",
+							"host": [
+								"first",
+								"stud",
+								"vts",
+								"su",
+								"ac",
+								"rs"
+							],
+							"path": [
+								"nwp",
+								"api",
+								"presentsInvites",
+								"invites",
+								""
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 27 Jan 2024 22:00:51 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "50"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 400,\n    \"status_message\": \"Event ID missing\"\n}"
+				},
+				{
+					"name": "Event has no invites/doesn't exists",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://first.stud.vts.su.ac.rs/nwp/api/presentsInvites/invites/13",
+							"protocol": "http",
+							"host": [
+								"first",
+								"stud",
+								"vts",
+								"su",
+								"ac",
+								"rs"
+							],
+							"path": [
+								"nwp",
+								"api",
+								"presentsInvites",
+								"invites",
+								"13"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 27 Jan 2024 22:01:12 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "48"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 404,\n    \"status_message\": \"Data Not Found\"\n}"
+				},
+				{
+					"name": "Event invites(GET)",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://first.stud.vts.su.ac.rs/nwp/api/presentsInvites/invites/13",
+							"protocol": "http",
+							"host": [
+								"first",
+								"stud",
+								"vts",
+								"su",
+								"ac",
+								"rs"
+							],
+							"path": [
+								"nwp",
+								"api",
+								"presentsInvites",
+								"invites",
+								"13"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 27 Jan 2024 22:04:17 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "369"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"status_message\": \"Data found\",\n    \"data\": [\n        {\n            \"id\": 14,\n            \"email\": \"mzmqdlqxjvcggyfaya@cwmxc.com\",\n            \"name\": \"Marko\",\n            \"are_coming\": \"Didn't decided\",\n            \"invite_code\": \"8deb62a199b46554fe76\",\n            \"event_id\": 13,\n            \"wish_list\": \"no\"\n        },\n        {\n            \"id\": 15,\n            \"email\": \"26121057@vts.su.ac.rs\",\n            \"name\": \"Pera\",\n            \"are_coming\": \"Didn't decided\",\n            \"invite_code\": \"a8a9f1094c2577c20a25\",\n            \"event_id\": 13,\n            \"wish_list\": \"no\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "Successfully added invite (PUT)",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"inviteEmail\" : \"cnf41202@nezid.com\",\r\n    \"inviteName\" : \"Nenad\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://first.stud.vts.su.ac.rs/nwp/api/presentsInvites/invites/13",
+							"protocol": "http",
+							"host": [
+								"first",
+								"stud",
+								"vts",
+								"su",
+								"ac",
+								"rs"
+							],
+							"path": [
+								"nwp",
+								"api",
+								"presentsInvites",
+								"invites",
+								"13"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 27 Jan 2024 22:08:23 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "67"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"status_message\": \"Invite to user successfully sent!\"\n}"
+				},
+				{
+					"name": "Adding same invite error",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"inviteEmail\" : \"cnf41202@nezid.com\",\r\n    \"inviteName\" : \"Nenad\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://first.stud.vts.su.ac.rs/nwp/api/presentsInvites/invites/13",
+							"protocol": "http",
+							"host": [
+								"first",
+								"stud",
+								"vts",
+								"su",
+								"ac",
+								"rs"
+							],
+							"path": [
+								"nwp",
+								"api",
+								"presentsInvites",
+								"invites",
+								"13"
+							]
+						}
+					},
+					"status": "Conflict",
+					"code": 409,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 27 Jan 2024 22:08:48 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "57"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 409,\n    \"status_message\": \"User already in invites\"\n}"
+				},
+				{
+					"name": "Wrong email format",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"inviteEmail\" : \"wrong_email_format\",\r\n    \"inviteName\" : \"Marko\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://first.stud.vts.su.ac.rs/nwp/api/presentsInvites/invites/13",
+							"protocol": "http",
+							"host": [
+								"first",
+								"stud",
+								"vts",
+								"su",
+								"ac",
+								"rs"
+							],
+							"path": [
+								"nwp",
+								"api",
+								"presentsInvites",
+								"invites",
+								"13"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 27 Jan 2024 22:09:23 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "63"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 400,\n    \"status_message\": \"Mail is in in invalid format!\"\n}"
+				},
+				{
+					"name": "Wrong ID (DELETE)",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://first.stud.vts.su.ac.rs/nwp/api/presentsInvites/invites/1",
+							"protocol": "http",
+							"host": [
+								"first",
+								"stud",
+								"vts",
+								"su",
+								"ac",
+								"rs"
+							],
+							"path": [
+								"nwp",
+								"api",
+								"presentsInvites",
+								"invites",
+								"1"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 27 Jan 2024 22:13:36 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "52"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 404,\n    \"status_message\": \"ID doesn't exsist.\"\n}"
+				},
+				{
+					"name": "Missing ID",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://first.stud.vts.su.ac.rs/nwp/api/presentsInvites/invites/",
+							"protocol": "http",
+							"host": [
+								"first",
+								"stud",
+								"vts",
+								"su",
+								"ac",
+								"rs"
+							],
+							"path": [
+								"nwp",
+								"api",
+								"presentsInvites",
+								"invites",
+								""
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 27 Jan 2024 22:14:35 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "44"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 400,\n    \"status_message\": \"ID missing\"\n}"
+				},
+				{
+					"name": "Delete invite (DELETE)",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://first.stud.vts.su.ac.rs/nwp/api/presentsInvites/invites/16",
+							"protocol": "http",
+							"host": [
+								"first",
+								"stud",
+								"vts",
+								"su",
+								"ac",
+								"rs"
+							],
+							"path": [
+								"nwp",
+								"api",
+								"presentsInvites",
+								"invites",
+								"16"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 27 Jan 2024 22:15:00 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "60"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"status_message\": \"Data deleted successfully.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Events",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://first.stud.vts.su.ac.rs/nwp/api/events/",
+					"protocol": "http",
+					"host": [
+						"first",
+						"stud",
+						"vts",
+						"su",
+						"ac",
+						"rs"
+					],
+					"path": [
+						"nwp",
+						"api",
+						"events",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GET all events",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://first.stud.vts.su.ac.rs/nwp/api/events/",
+							"protocol": "http",
+							"host": [
+								"first",
+								"stud",
+								"vts",
+								"su",
+								"ac",
+								"rs"
+							],
+							"path": [
+								"nwp",
+								"api",
+								"events",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 27 Jan 2024 22:16:27 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "460"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"status_message\": \"Data found\",\n    \"data\": [\n        {\n            \"id\": 9,\n            \"name\": \"Opis\",\n            \"description\": \"Test\",\n            \"date\": \"2024-01-30 15:47:00\",\n            \"foto\": \"2075-wp7089272.webp\",\n            \"location\": \"Lok\",\n            \"created_by\": \"andjelo12@live.com\",\n            \"is_blocked\": \"free\",\n            \"archived\": \"no\"\n        },\n        {\n            \"id\": 10,\n            \"name\": \"Abc\",\n            \"description\": \"Test\",\n            \"date\": \"2024-01-31 16:02:00\",\n            \"foto\": \"3513-626e131e-db19-499e-b018-705f13fbe20f.jpeg\",\n            \"location\": \"Lok\",\n            \"created_by\": \"andjell009@gmail.com\",\n            \"is_blocked\": \"free\",\n            \"archived\": \"no\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "GET single event",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://first.stud.vts.su.ac.rs/nwp/api/events/9",
+							"protocol": "http",
+							"host": [
+								"first",
+								"stud",
+								"vts",
+								"su",
+								"ac",
+								"rs"
+							],
+							"path": [
+								"nwp",
+								"api",
+								"events",
+								"9"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 27 Jan 2024 22:17:39 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "240"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"status_message\": \"Data found\",\n    \"data\": {\n        \"id\": 9,\n        \"name\": \"Opis\",\n        \"description\": \"Test\",\n        \"date\": \"2024-01-30 15:47:00\",\n        \"foto\": \"2075-wp7089272.webp\",\n        \"location\": \"Lok\",\n        \"created_by\": \"andjelo12@live.com\",\n        \"is_blocked\": \"free\",\n        \"archived\": \"no\"\n    }\n}"
+				},
+				{
+					"name": "Empty/wrong ID/no events",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://first.stud.vts.su.ac.rs/nwp/api/events/1",
+							"protocol": "http",
+							"host": [
+								"first",
+								"stud",
+								"vts",
+								"su",
+								"ac",
+								"rs"
+							],
+							"path": [
+								"nwp",
+								"api",
+								"events",
+								"1"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 27 Jan 2024 22:18:38 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "48"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 404,\n    \"status_message\": \"Data Not Found\"\n}"
+				},
+				{
+					"name": "User's events",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"andjell009@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://first.stud.vts.su.ac.rs/nwp/api/events/",
+							"protocol": "http",
+							"host": [
+								"first",
+								"stud",
+								"vts",
+								"su",
+								"ac",
+								"rs"
+							],
+							"path": [
+								"nwp",
+								"api",
+								"events",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 27 Jan 2024 22:24:04 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "522"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"status_message\": \"Data found\",\n    \"data\": [\n        {\n            \"id\": 10,\n            \"name\": \"Abc\",\n            \"description\": \"Test\",\n            \"date\": \"2024-01-31 16:02:00\",\n            \"foto\": \"3513-626e131e-db19-499e-b018-705f13fbe20f.jpeg\",\n            \"location\": \"Lok\",\n            \"created_by\": \"andjell009@gmail.com\",\n            \"is_blocked\": \"free\",\n            \"archived\": \"no\"\n        },\n        {\n            \"id\": 13,\n            \"name\": \"Događaj 2\",\n            \"description\": \"Uspešno kreiran\",\n            \"date\": \"2024-01-31 20:02:00\",\n            \"foto\": \"6778-03b02e2e-792b-472b-b010-dc2a66c78238.jpeg\",\n            \"location\": \"Lokacija\",\n            \"created_by\": \"andjell009@gmail.com\",\n            \"is_blocked\": \"free\",\n            \"archived\": \"yes\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "Archive event (PATCH)",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://first.stud.vts.su.ac.rs/nwp/api/events/10",
+							"protocol": "http",
+							"host": [
+								"first",
+								"stud",
+								"vts",
+								"su",
+								"ac",
+								"rs"
+							],
+							"path": [
+								"nwp",
+								"api",
+								"events",
+								"10"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 27 Jan 2024 22:26:18 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "48"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"status_message\": \"Event archived\"\n}"
+				},
+				{
+					"name": "Delete wrong ID",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://first.stud.vts.su.ac.rs/nwp/api/events/1",
+							"protocol": "http",
+							"host": [
+								"first",
+								"stud",
+								"vts",
+								"su",
+								"ac",
+								"rs"
+							],
+							"path": [
+								"nwp",
+								"api",
+								"events",
+								"1"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 27 Jan 2024 22:28:43 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "68"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 404,\n    \"status_message\": \"Event with given ID doesn't exsist\"\n}"
+				},
+				{
+					"name": "Delete successfull",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://first.stud.vts.su.ac.rs/nwp/api/events/10",
+							"protocol": "http",
+							"host": [
+								"first",
+								"stud",
+								"vts",
+								"su",
+								"ac",
+								"rs"
+							],
+							"path": [
+								"nwp",
+								"api",
+								"events",
+								"10"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 27 Jan 2024 22:29:14 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "60"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"status_message\": \"Data deleted successfully.\"\n}"
+				},
+				{
+					"name": "PUT not allowed",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://first.stud.vts.su.ac.rs/nwp/api/events/",
+							"protocol": "http",
+							"host": [
+								"first",
+								"stud",
+								"vts",
+								"su",
+								"ac",
+								"rs"
+							],
+							"path": [
+								"nwp",
+								"api",
+								"events",
+								""
+							]
+						}
+					},
+					"status": "Method Not Allowed",
+					"code": 405,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 27 Jan 2024 22:29:57 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, PATCH, DELETE"
+						},
+						{
+							"key": "Content-Length",
+							"value": "33"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"put is not allowed!\"\n}"
+				}
+			]
+		}
+	]
+}
