@@ -15,7 +15,7 @@ if (!in_array($method,$methods)){
     exit();
 }
 
-$resource=$_GET['resource'];
+$resource=$_GET['resource']??'';
 
 if (!in_array($resource,$resources)){
     http_response_code(404);

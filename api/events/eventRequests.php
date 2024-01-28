@@ -34,7 +34,7 @@ if (!empty($postData)) {
     }
 }
 
-$id=$_GET['id']??null;
+$id=$_GET['id']??'';
 
 if ($method === 'get') {
     if(empty($id)) {
