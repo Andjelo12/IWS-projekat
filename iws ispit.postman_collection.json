@@ -616,6 +616,67 @@
 					],
 					"cookie": [],
 					"body": "{\n    \"status\": 409,\n    \"status_message\": \"Account is not activated\"\n}"
+				},
+				{
+					"name": "Invalid email format",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"invalid_format\",\r\n    \"password\":\"Pera123.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://first.stud.vts.su.ac.rs/nwp/api/account/login",
+							"protocol": "http",
+							"host": [
+								"first",
+								"stud",
+								"vts",
+								"su",
+								"ac",
+								"rs"
+							],
+							"path": [
+								"nwp",
+								"api",
+								"account",
+								"login"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 28 Jan 2024 10:51:23 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "63"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 400,\n    \"status_message\": \"Mail is in in invalid format!\"\n}"
 				}
 			]
 		},
@@ -1503,7 +1564,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"link\":\"https://gigatron.rs/oprema-za-racunare/periferije/tastature-i-kompleti\",\r\n}",
+							"raw": "{\r\n    \"link\":\"https://gigatron.rs/oprema-za-racunare/periferije/tastature-i-kompleti\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
