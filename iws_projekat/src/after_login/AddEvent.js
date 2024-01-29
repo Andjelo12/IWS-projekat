@@ -146,6 +146,10 @@ export default function AddEvent({route}) {
                 if (responseJson.status === 200) {
                     Alert.alert("Obaveštenje","Događaj uspešno kreiran!");
                     navigation.replace("HomeLogIn",{fetchData: true});
+                    navigation.reset({
+                        index: 0,
+                        routes: [{ name: 'HomeLogIn' }],
+                    });
                 }
             } catch (error) {
                 console.error(error);
