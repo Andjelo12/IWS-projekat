@@ -185,7 +185,7 @@
         ]
       }
     },
-    "/events" : {
+    "/events/" : {
       "post": {
         "tags": [
           "events"
@@ -224,7 +224,9 @@
             "description": "Data Not Found"
           }
         }
-      },
+      }
+    },
+    "/events": {
       "get": {
         "tags": [
           "events"
