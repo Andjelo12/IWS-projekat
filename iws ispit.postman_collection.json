@@ -683,6 +683,16 @@
 		{
 			"name": "Register",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -914,6 +924,16 @@
 		{
 			"name": "Forgot password",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -2668,6 +2688,12 @@
 					"body": "{\n    \"message\": \"put is not allowed!\"\n}"
 				}
 			]
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": "7a54aa179d10d5bad728eef41213ff3c3a2eed3e"
 		}
 	]
 }
