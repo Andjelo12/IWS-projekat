@@ -3,8 +3,6 @@ header("Content-Type:application/json");
 require_once '../../config.php';
 require_once '../../functions_def.php';
 
-$tables=['login','register','forget'];
-
 $method = strtolower($_SERVER["REQUEST_METHOD"]);
 
 if ($method!=='post'){
@@ -20,7 +18,7 @@ $action=$_GET['action'] ?? '';
 
 if (!in_array($action, $actions)){
     http_response_code(403);
-    header("Allow: login, register, forget");
+    header("Allow: login, register, forget, token");
     echo json_encode([
         "message" => "Wrong action"
     ]);
@@ -52,7 +50,7 @@ if ($action==="login"){
 
     if(!empty($email) && !empty($password)){
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            response(400, "Mail is in in invalid format!");
+            response(400, "Mail is in invalid format!");
             exit();
         }
         $data = checkUserLogin($pdo, $email, $password);
@@ -84,6 +82,11 @@ if ($action==="login"){
     }
 }
 if ($action==="register"){
+    $token = getToken();
+    if ($token === ''){
+        response(401,"Unauthorized");
+        exit();
+    }
     $firstName = trim($obj['firstName']) ?? null;
     $lastName = trim($obj['lastName']) ?? null;
     $email = strtolower(trim($obj['email'])) ?? null;
@@ -91,13 +94,13 @@ if ($action==="register"){
 
     if(!empty($firstName) && !empty($lastName) && !empty($email) && !empty($password)){
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            response(400, "Mail is in in invalid format!");
+            response(400, "Mail is in invalid format!");
             exit();
         }
         $userData = emailExists($pdo, $email);
         if (!existsUser($pdo,$email)){
-            $token = createToken(20);
-            if ($token) {
+//            $token = createToken(20);
+//            if ($token) {
                 $id_user = registerUser($pdo, $password, $firstName, $lastName, $email, $token);
                 try {
                     $lastInsertID=insertIntoUserDetects($email, $id_user);
@@ -113,7 +116,7 @@ if ($action==="register"){
                     response(500, "Error has occurred while sending email");
                     exit();
                 }
-            }
+//            }
         } else {
             $lastInsertID=insertIntoUserDetects($email, $userData);
             insertIntoDetects($user_agent, $ipAddress,$deviceType, $country, $lastInsertID, $proxy, 'register with same email');
@@ -126,10 +129,15 @@ if ($action==="register"){
     }
 }
 if ($action==="forget"){
+    $token = getToken();
+    if ($token === ''){
+        response(401,"Unauthorized");
+        exit();
+    }
     $email = strtolower(trim($obj['email'])) ?? null;
-
     if (!empty($email) and getUserData($pdo, 'id_user', 'email', $email) && filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $token = createToken(20);
+//        $token = createToken(20);
+//        $token = getToken();
         setForgottenToken($pdo, $email, $token);
         $id_user = getUserData($pdo, 'id_user', 'email', $email);
         try {
@@ -150,3 +158,7 @@ if ($action==="forget"){
     }
 }
 
+if ($action==='token'){
+    response(200, "Token generation successfull", createToken(20));
+    exit();
+}

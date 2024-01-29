@@ -21,7 +21,11 @@ $table = $_GET['table'] ?? "";
 $id = $_GET['id'] ?? '';
 
 if (!in_array($table, $tables)) {
-    response(404, "Wrong table");
+    http_response_code(404);
+    header("Allow: login, register, forget");
+    echo json_encode([
+        "message" => "Wrong table"
+    ]);
     exit();
 }
 

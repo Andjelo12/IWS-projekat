@@ -452,6 +452,29 @@ function createToken(int $length): ?string
     }
 }
 
+function getToken():string{
+    if (isset($_SERVER['HTTP_AUTHORIZATION'])) {
+        $authorizationHeader = $_SERVER['HTTP_AUTHORIZATION'];
+    } elseif (isset($_SERVER['REDIRECT_HTTP_AUTHORIZATION'])) {
+        // For some server configurations, you might need to check REDIRECT_HTTP_AUTHORIZATION as well
+        $authorizationHeader = $_SERVER['REDIRECT_HTTP_AUTHORIZATION'];
+    } else {
+        // If not found, set it to an empty string or handle the absence as needed
+        $authorizationHeader = '';
+    }
+    $token='';
+    if (!empty($authorizationHeader)) {
+        // Split the Authorization header to get the token part
+        $parts = explode(' ', $authorizationHeader);
+
+        // Check if the Authorization header has the expected format
+        if (count($parts) === 2 && strtolower($parts[0]) === 'bearer') {
+            $token = $parts[1];
+        }
+    }
+    return $token;
+}
+
 /**
  * Function creates code with given length and returns it
  *
