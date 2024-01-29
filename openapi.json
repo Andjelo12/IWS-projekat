@@ -1,0 +1,696 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "IWS projekat",
+    "description": "Projekat je realizacije mobilne aplikacije [sajta](https://first.stud.vts.su.ac.rs/nwp/) za kreiranje događaja.\nPutem aplikacije korisnik može da:\n- pogleda aktuelne događaje\n- napravi nalog\n- kreira nove događaje\n- dodaje poklone i pozivnice.\n\n Aplikacija komunicira sa bazom putem api poziva koji su testirani u ovom dokumentu.",
+    "version": "1.0.11"
+  },
+  "servers": [
+    {
+      "url": "https://first.stud.vts.su.ac.rs/nwp/api"
+    }
+  ],
+  "tags": [
+    {
+      "name": "account|login"
+    },
+    {
+      "name": "account|register"
+    },
+    {
+      "name": "account|forget"
+    },
+    {
+      "name": "events",
+      "description": ""
+    },
+    {
+      "name": "presents",
+      "description": ""
+    },
+    {
+      "name": "invites",
+      "description": ""
+    }
+  ],
+  "paths": {
+    "/account/login": {
+      "post": {
+        "tags": [
+          "account|login"
+        ],
+        "summary": "login",
+        "requestBody": {
+          "description": "unesite validan email i lozinku",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "example": "andjell009@gmail.com"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "Lozinka123."
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Login successfull"
+          },
+          "400": {
+            "description": "Mail is in in invalid format!"
+          },
+          "401":{
+            "description": "Wrong details provided"
+          },
+          "403": {
+            "description": "Account blocked"
+          },
+          "409": {
+            "description": "Account is not activated"
+          },
+          "422": {
+            "description": "Incomplete data sent"
+          }
+        }
+      }
+    },
+    "/account/register": {
+      "post": {
+        "tags": [
+          "account|register"
+        ],
+        "description": "Pre slanja podataka potrebno je uneti bearer token",
+        "summary": "register",
+        "requestBody": {
+          "description": "potrebno je poslati ime, prezime, lozinku i email",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "firstName": {
+                    "type": "string",
+                    "example": "Pera"
+                  },
+                  "lastName": {
+                    "type": "string",
+                    "example": "Petrović"
+                  },
+                  "email": {
+                    "type": "string",
+                    "example": "andjell009@gmail.com"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "Lozinka123."
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Registration successfull"
+          },
+          "400": {
+            "description": "Mail is in in invalid format!"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "409": {
+            "description": "User already exists"
+          },
+          "422": {
+            "description": "Incomplete data sent"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/account/forget": {
+      "post": {
+        "tags": [
+          "account|forget"
+        ],
+        "description": "Pre slanja podataka potrebno je uneti bearer token",
+        "summary": "forgot password",
+        "requestBody": {
+          "description": "potrebno je navesti validan email naloga kome se resetuje lozinka",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "example": "andjell009@gmail.com"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Reset link send to email successfully"
+          },
+          "401":{
+            "description": "Unauthorized"
+          },
+          "422": {
+            "description": "Provide valid email"
+          }
+        },
+        "security": [
+          {
+          "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/events" : {
+      "post": {
+        "tags": [
+          "events"
+        ],
+        "summary": "korisnički događaji",
+        "description": "prikaz korisnikovih događaja",
+        "requestBody": {
+          "description": "potrebno je navesti email korisnika čije događaje želimo da izlistamo",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "example": "andjell009@gmail.com"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Data found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Events"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Data Not Found"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "events"
+        ],
+        "summary": "svi događaji",
+        "description": "detalji svih događaja",
+        "responses": {
+          "200": {
+            "description": "Data found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Events"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Data Not Found"
+          }
+        }
+      }
+    },
+    "/events/{event_id}" : {
+      "get": {
+        "tags": [
+          "events"
+        ],
+        "summary": "pronađite događaj",
+        "description": "detalji događaja koji vas zanima",
+        "parameters": [
+          {
+            "name": "event_id",
+            "in": "path",
+            "description": "ID događaja",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Data found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Events"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Data Not Found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "events"
+        ],
+        "summary": "obrišite događaji",
+        "parameters": [
+          {
+            "name": "event_id",
+            "in": "path",
+            "description": "id događaja koji želite da obrišete",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Data deleted successfully."
+          },
+          "404": {
+            "description": "Event with given ID doesn't exist"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "events"
+        ],
+        "summary": "arhiviranje događaj",
+        "parameters": [
+          {
+            "name": "event_id",
+            "in": "path",
+            "description": "ID događaja koji se arhivira",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Event archived"
+          },
+          "400": {
+            "description": "Wrong ID!"
+          }
+        }
+      }
+    },
+    "/presentsInvites/wish_list/{event_id}" : {
+      "get": {
+        "tags": [
+          "presents"
+        ],
+        "summary": "spisak poklona",
+        "description": "spisak poklona za navedeni događaj",
+        "parameters": [
+          {
+            "name": "event_id",
+            "in": "path",
+            "description": "ID događaja",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Data found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Wish-list"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Data Not Found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "presents"
+        ],
+        "summary": "dodaj poklon",
+        "parameters": [
+          {
+            "name": "event_id",
+            "in": "path",
+            "description": "ID događaja gde želimo dodati poklon",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Wish-list"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Present successfully added!"
+          },
+          "400": {
+            "description": "Invalid URL sent!"
+          },
+          "404": {
+            "description": "Can't add present, event with given ID doesn't exist"
+          },
+          "422": {
+            "description": "Please provide id, link and present name"
+          }
+        }
+      }
+    },
+    "/presentsInvites/wish_list/{present_id}" : {
+      "delete": {
+        "tags": [
+          "presents"
+        ],
+        "summary": "obrišite poklon",
+        "parameters": [
+          {
+            "name": "present_id",
+            "in": "path",
+            "description": "id poklona koji želite da obrišete",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Present successfully deleted!"
+          },
+          "400": {
+            "description": "ID missing"
+          },
+          "404": {
+            "description": "Present with given ID doesn't exists!"
+          }
+        }
+      }
+    },
+    "/presentsInvites/invites/{event_id}": {
+      "get": {
+        "tags": [
+          "invites"
+        ],
+        "summary": "zvanice",
+        "description": "spisak zvanica za navedeni događaj",
+        "parameters": [
+          {
+            "name": "event_id",
+            "in": "path",
+            "description": "ID događaja",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Data found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "example": "Pera"
+                    },
+                    "email": {
+                      "type": "string",
+                      "example": "pera@petrovi.com"
+                    },
+                    "name": {
+                      "type": "string",
+                      "example": "Pera"
+                    },
+                    "are_coming": {
+                      "type": "string",
+                      "default": "Didn't decided",
+                      "enum": [
+                        "Yes", "No", "Maybe", "Didn't decided"
+                      ]
+                    },
+                    "invite_code": {
+                      "type": "string",
+                      "example": "8deb62a199b46554fe76"
+                    },
+                    "event_id": {
+                      "type": "integer"
+                    },
+                    "wish_list": {
+                      "type": "string",
+                      "default": "no",
+                      "enum": [
+                        "yes",
+                        "no"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Event ID missing"
+          },
+          "404": {
+            "description": "Data Not Found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "invites"
+        ],
+        "summary": "dodaj zvanicu",
+        "parameters": [
+          {
+            "name": "event_id",
+            "in": "path",
+            "description": "ID događaja gde želimo dodati zvanicu",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Invites"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Invite to user successfully sent!"
+          },
+          "400": {
+            "description": "Mail is in in invalid format!"
+          },
+          "404": {
+            "description": "Can't add invite, event with given ID doesn't exist"
+          },
+          "409": {
+            "description": "User already in invites"
+          },
+          "422": {
+            "description": "Data missing"
+          }
+        }
+      }
+    },
+    "/presentsInvites/invites/{invite_id}": {
+      "delete": {
+        "tags": [
+          "invites"
+        ],
+        "summary": "obrišite zvanicu",
+        "parameters": [
+          {
+            "name": "invite_id",
+            "in": "path",
+            "description": "id zvanice koja se briše",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Data deleted successfully."
+          },
+          "400": {
+            "description": "ID missing"
+          },
+          "404": {
+            "description": "ID doesn't exsist."
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Events": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "example": "andjell009@gmail.com"
+          },
+          "eventName": {
+            "type": "string",
+            "example": "Rođendan"
+          },
+          "description": {
+            "type": "string",
+            "example": "Detalji događaja"
+          },
+          "location": {
+            "type": "string",
+            "example": "Subotica"
+          }
+        }
+      },
+      "Wish-list": {
+        "type": "object",
+        "properties": {
+          "link": {
+            "type": "string",
+            "description": "URL has to be valid",
+            "example": "https://gigatron.rs/oprema-za-racunare/periferije/tastature-i-kompleti"
+          },
+          "presentName": {
+            "type": "string",
+            "example": "Tastatura"
+          }
+        }
+      },
+      "Invites": {
+        "type": "object",
+        "properties": {
+          "inviteEmail": {
+            "type": "string",
+            "description": "email has to be valid",
+            "example": "andjelo12@live.com"
+          },
+          "inviteName": {
+            "type": "string",
+            "example": "Pera"
+          }
+        }
+      },
+      "Login": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "email has to be valid",
+            "example": "andjell009@gmail.com"
+          },
+          "password": {
+            "type": "string",
+            "example": "Abc1234."
+          }
+        }
+      },
+      "Register": {
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "type": "string",
+            "example": "Pera"
+          },
+          "lastName": {
+            "type": "string",
+            "example": "Petrović"
+          },
+          "email": {
+            "type": "string",
+            "description": "email has to be valid",
+            "example": "random@email.com"
+          },
+          "password": {
+            "type": "string",
+            "example": "Abc1234."
+          }
+        }
+      },
+      "Forget": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "email has to be valid",
+            "example": "random@email.com"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  }
+}
