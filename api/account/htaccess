@@ -1,0 +1,4 @@
+RewriteEngine On    # Turn on the rewriting engine
+
+RewriteRule ^([0-9a-z_-]*)$ accountRequests.php?action=$1 [NC,L]
+RewriteRule .* - [e=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
