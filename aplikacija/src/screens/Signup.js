@@ -61,52 +61,56 @@ export default function Signup() {
       setConfirmPasswordError("Lozinke se ne poklapaju");
     }
     if (firstName !== "" && lastName !== "" && email !== "" && reg.test(email) !== false && password !== "" && strongPassword.test(password) !== false && confirmPassword !== "" && password === confirmPassword) {
-      fetch('https://first.stud.vts.su.ac.rs/nwp/api/account/register',{
-			method:'post',
-			header:{
-				'Accept': 'application/json',
-				'Content-type': 'application/json'
-			},
-			body:JSON.stringify({
-				// we will pass our input data to server
-				firstName : firstName,
-                lastName : lastName,
-                email: email,
-				password: password
-			})
-			
-		})
-		.then((response) => response.json())
-		 .then((responseJson)=>{
-			 if(responseJson.status === 200){
-				 // redirect to profile page
-				 Alert.alert("Obaveštenje","Nalog uspešno kreiran! Proverite vaš email da bi ste ga aktivirali");
-                 navigation.goBack();
-			 }else if(responseJson.status === 409){
-				 Alert.alert("Greška","Korisnik sa navedenim podacima već postoji");
-			 }
-		 })
-		 .catch((error)=>{
-		 console.error(error);
-		 });
+      try {
+        const response2 = await fetch('https://first.stud.vts.su.ac.rs/nwp/api/account/token', {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        const data2 = await response2.json();
+
+        if (data2.status === 200){
+          sendData(data2.data, firstName, lastName, email, password);
+        }
+
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
     }
-    // try {
-    //   const {data} = await Axios.post('http://192.168.0.102/api/signup.php', {
-    //     email: email,
-    //     password: password,
-    //   });
-
-    //   if (data.status == 'success') {
-    //     alert('User Created Successfully');
-    //   } else {
-    //     alert('User Not Created');
-    //   }
-
-    //   console.log(data);
-    // } catch (err) {
-    //   console.log(err);
-    // }
   };
+
+  const sendData = async (token, firstName, lastName, email, password) => {
+    try {
+      const response = await fetch('https://first.stud.vts.su.ac.rs/nwp/api/account/register', {
+        method: 'POST',
+        headers: {
+          'Authorization':'Bearer '+token,
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          firstName: firstName,
+          lastName: lastName,
+          email: email,
+          password: password
+        })
+      });
+
+      const responseJson = await response.json();
+
+      if (responseJson.status === 200) {
+        Alert.alert("Obaveštenje", "Nalog uspešno kreiran! Proverite vaš email da biste ga aktivirali");
+        navigation.goBack();
+      } else if (responseJson.status === 409) {
+        Alert.alert("Greška", "Korisnik sa navedenim podacima već postoji");
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.formContainer}>

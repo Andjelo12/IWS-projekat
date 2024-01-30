@@ -11,7 +11,6 @@ import {
   Alert,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-
 //
 
 export default function Forget() {
@@ -31,48 +30,49 @@ export default function Forget() {
 		  // return false;
 		}
         if (email !== "" && reg.test(email) !== false){
-    fetch('https://first.stud.vts.su.ac.rs/nwp/api/account/forget',{
-			method:'post',
-			header:{
-				'Accept': 'application/json',
-				'Content-type': 'application/json'
-			},
-			body:JSON.stringify({
-				// we will pass our input data to server
-				email: email
-			})
-			
-		})
-		.then((response) => response.json())
-		 .then((responseJson)=>{
-			 if(responseJson.status === 200){
-				 // redirect to profile page
-                Alert.alert("Obaveštenje","Ukoliko imate nalog na našem sajtu link za reset lozinke vam je poslat.");
-                navigation.goBack();
-				 //this.props.navigation.navigate("About");
-			 }
-		 })
-		 .catch((error)=>{
-		 console.error(error);
-		 });
-    }
-    // try {
-    //   const {data} = await Axios.post('http://192.168.0.102/api/login.php', {
-    //     email: email,
-    //     password: password,
-    //   });
+          try {
+            const response2 = await fetch('https://first.stud.vts.su.ac.rs/nwp/api/account/token', {
+              method: 'POST',
+              headers: {
+                'Accept': 'application/json'
+              }
+            });
 
-    //   if (data.status == 'success') {
-    //     alert('User Login Successfully');
-    //   } else {
-    //     alert('User Not Found');
-    //   }
+            const data2 = await response2.json();
 
-    //   console.log(data);
-    // } catch (err) {
-    //   console.log(err);
-    // }
+            if (data2.status === 200){
+              sendData(data2.data, email);
+            }
+
+          } catch (error) {
+            console.error('Error fetching data:', error);
+          }
+        }
   };
+
+  const sendData = async (token, email) => {
+    try {
+      const response = await fetch('https://first.stud.vts.su.ac.rs/nwp/api/account/forget', {
+        method: 'POST',
+        headers: {
+          'Authorization': 'Bearer '+token,
+          'Accept': 'application/json',
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify({
+          email: email
+        })
+      });
+      const responseJson = await response.json();
+
+      if (responseJson.status === 200) {
+        Alert.alert("Obaveštenje", "Ukoliko imate nalog na našem sajtu link za reset lozinke vam je poslat.");
+        navigation.goBack();
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
   return (
     <View style={styles.container}>
